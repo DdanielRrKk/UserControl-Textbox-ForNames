@@ -126,7 +126,15 @@ namespace allNames
 
             if (s.Length == 1)
             {
-                s.ToUpper();
+                if (s == "-")
+                {
+                    MessageBox.Show("Името не може да започва с тире!", "Внимание", MessageBoxButtons.OK);
+                    s = "";
+                }
+                else
+                {
+                    s.ToUpper();
+                }
             }
             else if (s.Length >= 2)
             {
@@ -135,7 +143,7 @@ namespace allNames
 
                 if (Char.IsUpper(s[1]))
                 {
-                    temp = s.Substring(0, 1);
+                    temp = s.Substring(0, 1).ToUpper();
 
                     for (int i = 1; i < s.Length; i++)
                     {
@@ -146,7 +154,7 @@ namespace allNames
                 }
                 else
                 {
-                    temp = s.Substring(0, 1);
+                    temp = s.Substring(0, 1).ToUpper();
 
                     for (int i = 1; i < s.Length; i++)
                     {
